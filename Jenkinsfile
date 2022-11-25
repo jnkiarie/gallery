@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Clone Repository'){
             steps{
-                git https://github.com/jnkiarie/gallery.git
+                git 'https://github.com/jnkiarie/gallery.git'
             }
             
         }
