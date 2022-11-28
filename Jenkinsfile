@@ -1,5 +1,6 @@
 pipeline{
     agent any
+    tools{nodejs 'Node 12'}
     stages{
         stage('Clone Repository From github'){
             steps{
