@@ -20,5 +20,17 @@ pipeline{
                 sh 'npm install uuid@8.1.0'
             }
         }
+        stage('Build App'){
+            steps{
+                sh 'npm build'
+            }
+        }
+        stage('Deploy to Heroku'){
+            steps{
+                withCredentials([usernameColonPassword(credentialsId: 'gallery', variable: 'HEROKU_CREDENTIALS' )]){
+                sh 'git push https://${HEROKU_CREDENTIALS}@git.heroku.com/gallery-l.git master'              
+                }
+            }
+        }     
     }
 }
